@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-container">
+    <div class="logo-section">
+      <div class="logo">
+        <ion-icon name="business-outline" class="logo-icon"></ion-icon>
+        <h1>경북연구원</h1>
+        <h2>그룹웨어</h2>
+      </div>
+    </div>
+
+    <div class="login-form">
+      <ion-card class="login-card">
+        <ion-card-header>
+          <ion-card-title>로그인</ion-card-title>
+          <ion-card-subtitle>사용자 인증</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <ion-item class="form-item">
+              <ion-label position="stacked">아이디</ion-label>
+              <ion-input
+                type="text"
+                formControlName="username"
+                placeholder="아이디를 입력하세요"
+                class="custom-input">
+              </ion-input>
+            </ion-item>
+
+            <ion-item class="form-item">
+              <ion-label position="stacked">비밀번호</ion-label>
+              <ion-input
+                type="password"
+                formControlName="password"
+                placeholder="비밀번호를 입력하세요"
+                class="custom-input">
+              </ion-input>
+            </ion-item>
+
+            <div class="form-options">
+              <ion-checkbox formControlName="rememberMe">로그인 상태 유지</ion-checkbox>
+            </div>
+
+            <ion-button
+              expand="block"
+              type="submit"
+              [disabled]="!loginForm.valid || isLoading"
+              class="login-button">
+              <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+              <span *ngIf="!isLoading">로그인</span>
+            </ion-button>
+          </form>
+
+          <div class="login-links">
+            <ion-button fill="clear" size="small">아이디 찾기</ion-button>
+            <ion-button fill="clear" size="small">비밀번호 찾기</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 경북연구원. All rights reserved.</p>
+    </div>
+  </div>
+</ion-content>
