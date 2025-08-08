@@ -5,6 +5,9 @@ const config: CapacitorConfig = {
   appName: '경북연구원 그룹웨어',
   webDir: 'www',
   server: {
+    url: 'http://211.224.129.168:8085/ndgi/#/pages/login',
+    cleartext: true,
+    allowNavigation: ['http://211.224.129.168:8085'],
     androidScheme: 'https'
   },
   ios: {
